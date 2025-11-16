@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="img/logo.jpeg" type="image/x-icon">
+    <title>Card</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <aside>
+          <!-- Front Card -->
+          <div class="front__card">
+            <figure class="logo">
+              <svg width="84" height="47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff"/>
+                <path d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z" stroke="#fff"/>
+              </svg>
+            </figure>
+            <section class="card__details">
+              <h2 class="card__number">0000 0000 0000 0000</h2>
+              <div class="card__holder">
+                <h3 class="card__name">Your name</h3>
+                <p class="card__valid">
+                  <span class="card__month">00</span>/
+                  <span class="card__year">00</span>
+                </p>
+              </div>
+            </section>
+          </div>
+          <!-- Back Card -->
+          <div class="back__card">
+            <div class="magnetic__stripe"></div>
+            <div class="signature__panel">
+              <canvas class="signature__display" width="200" height="35"></canvas>
+              <p class="cvc__number">000</p>
+            </div>
+          </div>
+        </aside>
+        <section class="form__container">
+          <form>
+            <div class="form__group">
+              <label for="card__name">Cardholder Name</label>
+              <input
+                type="text"
+                id="card__name"
+                name="card__name"
+                maxlength="20"
+                placeholder="e.g Your Name"
+              />
+              <span class="name__error"></span>
+            </div>
+            <div class="form__group">
+              <label for="card__number">Card Number</label>
+              <input
+                type="text"
+                id="card__number"
+                name="card__number"
+                maxlength="16"
+                placeholder="e.g. 1234 5678 9123 0000"
+              />
+              <span class="num__error"></span>
+            </div>
+            <div class="wrapper">
+              <div class="form__group">
+                <label for="card__exp">Exp. Date (MM/YY)</label>
+                <div class="exp__date">
+                  <input
+                    type="text"
+                    id="card__exp"
+                    name="card__month"
+                    placeholder="MM"
+                    maxlength="2"
+                  />
+                  <input
+                    type="text"
+                    id="card__year"
+                    name="card__year"
+                    placeholder="YY"
+                    maxlength="2"
+                  />
+                </div>
+                <span class="exp__error"></span>
+              </div>
+              <div class="form__group">
+                <label for="card__cvc">CVC</label>
+                <input
+                  type="text"
+                  id="card__cvc"
+                  name="card__cvc"
+                  placeholder="e.g. 123"
+                  maxlength="3"
+                />
+                <span class="cvc__error"></span>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label for="signature__canvas">Signature</label>
+              <div class="canvas__container">
+                <canvas id="signature__canvas" width="400" height="100"></canvas>
+                <button type="button" id="clear__signature" class="clear__btn">Clear</button>
+              </div>
+            </div>
+
+            <button type="submit">Confirm</button>
+          </form>
+
+          <!-- Completed state start -->
+          <section class="completed__state">
+            <div class="cont">
+              <svg width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="40" fill="url(#a)"/>
+                <path d="m28 39.92 8.08 8.08L57.92 26.16" stroke="#fff" stroke-width="3"/>
+                <defs>
+                  <linearGradient id="a" x1="0" y1="0" x2="0" y2="80" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#6348FE"/>
+                    <stop offset="1" stop-color="#610595"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <h2>Thank you!</h2>
+              <p>We've added your card details</p>
+              <button id="continue">Continue</button>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <!-- Script file -->
+    <script src="app.js"></script>
+  </body>
+</html>
